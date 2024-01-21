@@ -1,0 +1,11 @@
+# python 
+.pytest_cache
+__pycache__
+.coverage
+
+# virtual env 
+.venv
+
+# IDE 
+.idea
+.attach_pid*
