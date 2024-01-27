@@ -1,4 +1,4 @@
-import ymlconf.readers as readers
+import comfyconf.readers as readers
 
 
 class DotDict(dict):

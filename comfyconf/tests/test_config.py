@@ -1,5 +1,5 @@
-from ymlconf.config import DotDict, make_config
-from ymlconf.readers import available_readers
+from comfyconf.config import DotDict, make_config
+from comfyconf.readers import available_readers
 
 import pytest
 from pathlib import Path

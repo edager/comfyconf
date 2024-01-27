@@ -1,4 +1,4 @@
-from ymlconf.readers import available_readers, PyYaml, Ruamel, get_reader
+from comfyconf.readers import available_readers, PyYaml, Ruamel, get_reader
 from pathlib import Path
 import pytest
 
