@@ -14,14 +14,15 @@ readme = "README.md"
 license = { file = "LICENSE" }
 classifiers = [
     "Operating System :: OS Independent",
-    "Development Status :: 4 - Beta",
+    "Intended Audience :: Developers",
+    "Development Status :: 3 - Alpha",
     "License :: OSI Approved :: MIT License",
     "Programming Language :: Python :: 3",
     "Programming Language :: Python :: 3.10,"
 ]
 
 [tool.setuptools.packages.find]
-where = ["comfyconf"]
+where = ["src"]
 
 [project.urls]
 Homepage = "https://github.com/edager/comfyconf"

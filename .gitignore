@@ -1,7 +1,13 @@
 # python 
-.pytest_cache
 __pycache__
+
+# tests
+.pytest_cache
 .coverage
+
+# build 
+dist
+*.egg-info
 
 # virtual env 
 .venv
