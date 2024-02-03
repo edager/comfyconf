@@ -6,7 +6,7 @@ The format is inspired by [Keep a Changelog](https://keepachangelog.com/en/1.0.0
 
 ## [Unreleased]
 
-## [0.0.1] 2024-01-28
+## [0.0.1] 2024-02-03
 
 ### Added
   - Reader using pyymal 
