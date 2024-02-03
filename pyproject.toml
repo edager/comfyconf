@@ -18,11 +18,8 @@ classifiers = [
     "Development Status :: 3 - Alpha",
     "License :: OSI Approved :: MIT License",
     "Programming Language :: Python :: 3",
-    "Programming Language :: Python :: 3.10,"
+    "Programming Language :: Python :: 3.10",
 ]
-
-[tool.setuptools.packages.find]
-where = ["src"]
 
 [project.urls]
 Homepage = "https://github.com/edager/comfyconf"
@@ -34,5 +31,13 @@ dev = [
     'pytest',
     'coverage',
     'black',
+]
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+pythonpath = [
+  ".", "src",
 ]
 
