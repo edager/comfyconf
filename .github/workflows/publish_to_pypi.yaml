@@ -6,7 +6,6 @@ on:
       - main
 
 jobs:
-  name: Build distribution 
   runs-on: ubuntu-latest
 
   steps:
