@@ -1,6 +1,6 @@
 name: Pytesting
 
-on: worflow_dispatch
+on: [worflow_dispatch]
 
 jobs:
   build:
