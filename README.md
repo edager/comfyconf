@@ -1,4 +1,4 @@
-# ymlconf
+# comfyconf
 
 ## What is it for?
 
