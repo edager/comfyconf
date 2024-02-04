@@ -1,6 +1,6 @@
-from abc import ABC, abstractmethod
-from pathlib import Path
 import yaml
+from abc import ABC, abstractmethod
+from comfyconf.utils import check_path
 
 
 class Reader(ABC):
@@ -17,9 +17,6 @@ class Reader(ABC):
         __init__(config_path: str) -> None:
             Initialize the Reader with the given configuration file path.
 
-        _check_path() -> None:
-            Check if the configuration file exists. Raises FileNotFoundError if not found.
-
         read() -> dict:
             Abstract method to be implemented by subclasses for reading configuration files.
 
@@ -32,17 +29,7 @@ class Reader(ABC):
         Args:
             config_path (str): The path to the configuration file.
         """
-        self.config_path = Path(config_path)
-
-    def _check_path(self) -> None:
-        """
-        Check if the configuration file exists.
-
-        Raises:
-            FileNotFoundError: If the configuration file does not exist.
-        """
-        if not self.config_path.exists():
-            raise FileNotFoundError(f"{self.config_path} was not found")
+        self.config_path = config_path
 
     @abstractmethod
     def read(self) -> dict:
@@ -52,7 +39,7 @@ class Reader(ABC):
         Returns:
             dict: A dictionary containing the configuration data.
         """
-        pass
+        ...
 
 
 class PyYaml(Reader):
@@ -80,7 +67,7 @@ class PyYaml(Reader):
         Returns:
             dict: A dictionary containing the configuration data.
         """
-        self._check_path()
+        check_path(self.config_path)
         with open(self.config_path) as f:
             return yaml.safe_load(f)
 
@@ -119,7 +106,7 @@ try:
             Returns:
                 dict: A dictionary containing the configuration data.
             """
-            self._check_path()
+            check_path(self.config_path)
             yaml = YAML(typ="safe")
             return yaml.load(self.config_path)
 
@@ -127,24 +114,3 @@ try:
 
 except ImportError:
     pass
-
-
-def get_reader(reader: str):
-    """
-    Get the configuration file reader class based on the provided reader name.
-
-    Args:
-        reader (str): The name of the reader.
-
-    Returns:
-        Reader: An instance of the configuration file reader class corresponding to the provided name.
-
-    Raises:
-        ValueError: If the provided reader name is not valid.
-    """
-    try:
-        return available_readers[reader]
-    except KeyError:
-        raise ValueError(
-            f"{reader} is not a reader, available readers are {available_readers.keys()}"
-        )

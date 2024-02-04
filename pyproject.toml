@@ -4,10 +4,11 @@ build-backend = 'setuptools.build_meta'
 
 [project]
 name = "comfyconf"
-version = "0.0.1"
+version = "0.0.2"
 requires-python = ">=3.10"
 dependencies = [ 
     "pyyaml",
+    "jsonschema",
 ]
 description = "YAML config parser"
 readme = "README.md"
@@ -28,6 +29,7 @@ Issues = "https://github.com/edager/comfyconf/issues"
 [project.optional-dependencies]
 dev = [
     'ruamel.yaml',
+    'yamale',
     'pytest',
     'coverage',
     'black',
