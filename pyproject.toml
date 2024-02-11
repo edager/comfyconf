@@ -33,6 +33,7 @@ dev = [
     'pytest',
     'coverage',
     'black',
+    'isort',
 ]
 
 [tool.setuptools.packages.find]

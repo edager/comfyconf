@@ -1,8 +1,10 @@
-import pytest
-from comfyconf.validators import JSONSchema, YamaleSchema, ValidationError
-import yamale
 from pathlib import Path
+
+import pytest
+import yamale
+
 from comfyconf.utils import DotDict
+from comfyconf.validators import JSONSchema, ValidationError, YamaleSchema
 
 
 class TestJSONSchema:

@@ -1,6 +1,6 @@
 import comfyconf.readers as readers
-import comfyconf.validators as validators
 import comfyconf.utils as utils
+import comfyconf.validators as validators
 
 
 def make_config(config_path: str, reader: str = "pyyaml") -> utils.DotDict:
@@ -39,6 +39,30 @@ def validate_config(
     load_args: dict = None,
     val_args: dict = None,
 ) -> None:
+    """
+    Validate a configuration against a schema using a specified validator.
+
+    This function validates a configuration against a schema using a specified validator.
+    It supports multiple validators such as 'json' and 'yamale'.
+
+    Args:
+        config (utils.DotDict): The configuration to validate.
+        schema_path (str): The path to the schema file.
+        validator (str, optional): The validator to use. Defaults to 'json'.
+        load_args (dict, optional): Optional arguments to pass to the validator constructor when loading the schema.
+        val_args (dict, optional): Optional arguments to pass to the validator's validate method.
+
+    Returns:
+        None
+
+    Raises:
+        ValueError: If the specified validator is not available.
+        Exception: If validation fails.
+
+    Examples:
+        >>> validate_config(config, 'schema.json', validator='json')
+        config was successfully validated
+    """
     validator = utils.get_available(
         arg=validator,
         available_args=validators.available_validators,
@@ -48,6 +72,6 @@ def validate_config(
 
     try:
         validator.validate(config)
-        print("config was successfully validated")
+        print(f"config was successfully validated")
     except Exception as err:
         raise err

@@ -1,8 +1,10 @@
-from comfyconf.utils import check_path, get_available, DotDict
-from comfyconf.readers import available_readers
-from comfyconf.validators import available_validators
 from pathlib import Path
+
 import pytest
+
+from comfyconf.readers import available_readers
+from comfyconf.utils import DotDict, check_path, get_available
+from comfyconf.validators import available_validators
 
 
 class TestDotDict:

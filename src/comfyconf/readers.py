@@ -1,5 +1,7 @@
-import yaml
 from abc import ABC, abstractmethod
+
+import yaml
+
 from comfyconf.utils import check_path
 
 
@@ -39,7 +41,6 @@ class Reader(ABC):
         Returns:
             dict: A dictionary containing the configuration data.
         """
-        ...
 
 
 class PyYaml(Reader):

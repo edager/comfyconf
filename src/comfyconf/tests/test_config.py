@@ -1,8 +1,10 @@
+from pathlib import Path
+
+import pytest
+
 from comfyconf.config import make_config, validate_config
 from comfyconf.readers import available_readers
 from comfyconf.validators import ValidationError
-import pytest
-from pathlib import Path
 
 
 def make_file(test_content, path):

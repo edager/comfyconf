@@ -33,21 +33,21 @@ Now, load it using `make_config`:
 
 ```python
 >>> from comfyconf import make_config   
->>> config = make_config('foo.yaml')
+>>> config = make_config("foo.yaml")
 >>> config.test.ip
 '127.0.0.1'
 >>> config.production.port
 1234  
 ```
 
-Note that numerical keys are not allowed (even if they're strings in YAML), doing so will raise a `ValueError` 
+Note that numerical keys are not allowed (even if they're strings in YAML), doing so will raise a `ValueError`.  
 
 ### Using ruamel.yaml as parser instead of pyyaml
 
-If you prefer ruamel.yaml or need to parse YAML 1.2 document you can use:
+If you prefer ruamel.yaml or need to parse YAML 1.2 document you can specify `"ruamel"`` as the reader:
 
 ```python 
->>> config = make_config('foo.yaml', reader='ruamel')
+>>> config = make_config("foo.yaml", reader="ruamel")
 ```
 
 ## Contribute
