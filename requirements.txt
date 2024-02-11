@@ -1,3 +1,5 @@
 pytest
 PyYAML
 ruamel.yaml
+yamale
+jsonschema

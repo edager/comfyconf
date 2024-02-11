@@ -5,11 +5,14 @@ name = "pypi"
 
 [packages]
 pyyaml = "*"
+jsonschema = "*"
 
 [dev-packages]
 pytest = "*"
 coverage = "*"
 "ruamel.yaml" = "*"
+yamale = "*"
+isort = "*"
 
 [requires]
 python_version = "3.10"
