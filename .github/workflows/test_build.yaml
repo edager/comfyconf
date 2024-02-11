@@ -2,8 +2,8 @@ name: Publish Python distribution package to PyPI
 
 on: 
   push:
-    tags:
-      - v*
+    branches:
+      - main
 
 jobs:
   build:
@@ -26,24 +26,3 @@ jobs:
       with:
         name: python-package-distributions
         path: dist/
-
-  publish-to-pypi:
-    name: >-
-      Publish Python distribution package to PyPI
-    needs:
-    - build
-    runs-on: ubuntu-latest
-    environment:
-      name: pypi
-      url: https://pypi.org/p/comfyconf  
-    permissions:
-      id-token: write  
-
-    steps:
-    - name: Download all the dists
-      uses: actions/download-artifact@v3
-      with:
-        name: python-package-distributions
-        path: dist/
-    - name: Publish distribution package to PyPI
-      uses: pypa/gh-action-pypi-publish@release/v1
